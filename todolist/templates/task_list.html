@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My To-Do List</title>
+</head>
+<body>
+    <h1>Hello, {{ user.username }}! Here is your to-do list:</h1>
+    <ul>
+        {% for task in tasks %}
+        <li>
+            {{ task.title }}
+        </li>
+        {% endfor %}
+    </ul>
+    <h2>Add a new task</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Add Task</button>
+    </form>
+</body>
+</html>
